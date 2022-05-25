@@ -23,7 +23,7 @@ func NewMyStack(scope constructs.Construct, id string) cdktf.TerraformStack {
 	cluster_config := eks.EksClusterConfig{
 		Name:                   jsii.String("mkorejo-private"),
 		EnabledClusterLogTypes: jsii.Strings("api", "audit", "authenticator", "controllerManager", "scheduler"),
-		RoleArn:                jsii.String(""),
+		RoleArn:                jsii.String("arn:aws:iam::853973692277:role/abhishek_eks_cluster_role"),
 		Version:                jsii.String("1.22"),
 		EncryptionConfig: &eks.EksClusterEncryptionConfig{
 			Provider: &eks.EksClusterEncryptionConfigProvider{
@@ -41,7 +41,7 @@ func NewMyStack(scope constructs.Construct, id string) cdktf.TerraformStack {
 
 	ng1_config := eks.EksNodeGroupConfig{
 		ClusterName:   jsii.String("mkorejo-private"),
-		NodeRoleArn:   jsii.String(""),
+		NodeRoleArn:   jsii.String("arn:aws:iam::853973692277:role/abhishek_eks_node_instance_role"),
 		NodeGroupName: jsii.String("ng1"),
 		AmiType:       jsii.String("AL2_x86_64"),
 		InstanceTypes: jsii.Strings("t3.medium"),
